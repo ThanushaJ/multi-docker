@@ -14,16 +14,14 @@ after_success:
   - docker build -t thanushajakkula/multi-server ./server
   - docker build -t thanushajakkula/multi-worker ./worker
 
-# Log in to the Docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Log in to the Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-# Push Image to Docker hub
--docker push thanushajakkula/multi-client
--docker push thanushajakkula/multi-nginx
--docker push thanushajakkula/multi-server
--docker push thanushajakkula/multi-worker
-
-
+  # Push Image to Docker hub
+  - docker push thanushajakkula/multi-client
+  - docker push thanushajakkula/multi-nginx
+  - docker push thanushajakkula/multi-server
+  - docker push thanushajakkula/multi-worker
 # deploy:
 #   provider: elasticbeanstalk
 #   region: "us-east-2"

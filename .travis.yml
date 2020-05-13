@@ -23,7 +23,6 @@ after_success:
   - docker push thanushajakkula/multi-server
   - docker push thanushajakkula/multi-worker
 deploy:
-  edge: true
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "multi-docker"
